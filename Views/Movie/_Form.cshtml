@@ -1,0 +1,31 @@
+@model MovieApp.Models.Movie
+<div class="mb-3">
+  <label asp-for="Title"></label>
+  <input asp-for="Title" class="form-control">
+</div>
+<div class="mb-3">
+  <label asp-for="Duration"></label>
+  <input asp-for="Duration" class="form-control">
+</div>
+<div class="mb-3">
+  <label asp-for="Subtitle"></label>
+  <select asp-for="Subtitle" asp-items="@((List<SelectListItem>)ViewBag.subtitles)" class="form-select">
+    <option value="">Please choose a subtitle</option>
+  </select>
+</div>
+<div class="mb-3">
+  <label asp-for="ReleaseDate"></label>
+  <input asp-for="ReleaseDate" class="form-control">
+</div>
+<div class="mb-3">
+  <label asp-for="Language"></label>
+  <select asp-for="Language" asp-items="@((List<SelectListItem>)ViewBag.languages)" class="form-select">
+    <option value="">Please choose a language</option>
+  </select>
+</div>
+<div class="mb-3">
+  <label asp-for="MovieType"></label>
+  <select asp-for="MovieType" asp-items="@((List<SelectListItem>)ViewBag.movieTypes)" class="form-select">
+    <option value="">Please choose a movie type</option>
+  </select>
+</div>

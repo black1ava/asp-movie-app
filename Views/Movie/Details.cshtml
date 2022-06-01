@@ -1,0 +1,44 @@
+@model MovieApp.Models.Movie
+@{
+  ViewData["Title"] = "Movie details";
+}
+<div class="card">
+  <div class="card-body">
+    <div class="card-header d-flex flex-row justify-content-between">
+      <h3>Movie details</h3>
+      <a asp-controller="Movie" asp-action="Index" class="btn btn-secondary">Back to list</a>
+    </div>
+    <div class="mb-3">
+      <ul class="list-group">
+        <li class="list-group-item">ID: @Model.Id</li>
+        <li class="list-group-item">Title: @Model.Title</li>
+        <li class="list-group-item">Duration: <span>@Model.Duration</span>mn</li>
+        <li class="list-group-item">Subtitle: @Model.Subtitle</li>
+        <li class="list-group-item">Release date: @Model.ReleaseDate</li>
+        <li class="list-group-item">Language: @Model.Language</li>
+        <li class="list-group-item">Movie type: @Model.MovieType</li>
+      </ul>
+    </div>
+    <a asp-controller="Movie" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete">Delete</button>
+    <div class="modal fade" id="delete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Are you sure you want to delete movie: <strong>@Model.Title</strong></h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>This action cannot be undone.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+            <form asp-controller="Movie" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

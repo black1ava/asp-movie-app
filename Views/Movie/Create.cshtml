@@ -1,0 +1,16 @@
+@model MovieApp.Models.Movie
+@{
+  ViewData["Title"] = "New movie";
+}
+<div class="card">
+  <div class="card-body">
+    <div class="card-header d-flex flex-row justify-content-between">
+      <h3>New movie</h3>
+      <a asp-controller="Movie" asp-action="Index" class="btn btn-secondary">Back to list</a>
+    </div>
+    <form asp-controller="Movie" asp-action="Create" method="post">
+      @Html.Partial("_Form", Model)
+      <button class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</div>
